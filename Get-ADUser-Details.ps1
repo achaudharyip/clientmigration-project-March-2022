@@ -50,4 +50,4 @@ ForEach ($Detail in $Details){
 }
 
 
-$USRResult|Select-Object -Property UserName,FirstName,LastName,AccountEnabled,GroupMembership,PrimaryGroup,PrimaryGrpID,HomeDrive,HomeDirectory,CompanyUPN,SID,UserOUPath,GUIDInfo|Export-Csv -Path C:\Users\bsimigrate\Downloads\PreUserMigrationInfo.csv -NoTypeInformation
+$USRResult|Select-Object -Property UserName,FirstName,LastName,AccountEnabled,GroupMembership,PrimaryGroup,PrimaryGrpID,HomeDrive,HomeDirectory,CompanyUPN,SID,UserOUPath,GUIDInfo|Export-Csv -Path c:\Path-to-Directory-for-output-csv-file\PreUserMigrationInfo.csv -NoTypeInformation

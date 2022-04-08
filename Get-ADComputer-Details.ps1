@@ -45,4 +45,4 @@ ForEach ($Detail in $Details){
     }
     $Result += New-Object -TypeName psobject -Property (@{FQDN=$Detail.DNSHostName;OUPath=$Detail.CanonicalName;HostName=$Detail.SamAccountName;IPAddress=$Detail.IPv4Address;SID=$Detail.SID;OS=$Detail.OperatingSystem;OSVersion=$Detail.OperatingSystemVersion;ServiceAccount=$SVCACCT;GUID=$Detail.ObjectGUID;GroupID=$Detail.primaryGroupID})
 }
-$Result|Select-Object -Property HostName,FQDN,IPAddress,OS,OSVersion,ServiceAccount,OUPath,SID,GUID,GroupID|Export-Csv -Path C:\Users\bsimigrate\Downloads\PreComputerMigrationInfo.csv -NoTypeInformation
+$Result|Select-Object -Property HostName,FQDN,IPAddress,OS,OSVersion,ServiceAccount,OUPath,SID,GUID,GroupID|Export-Csv -Path c:\Path-to-Directory-for-output-csv-file\PreComputerMigrationInfo.csv -NoTypeInformation
