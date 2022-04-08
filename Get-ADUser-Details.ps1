@@ -7,7 +7,7 @@
     PS C:\> .\Get-ADUsers-Details.ps1
     The script connects to the source domain, gathers information for users, categorizes needed properties, and exports the properties to a csv file in a given order.
 .INPUTS
-    Inputs information for Domain and ComputerNames from YMCA-AD-DOMAIN-LIST.csv and YMCA-AD-USER-LIST.csv
+    Inputs information for Domain and ComputerNames from COMPANY-AD-DOMAIN-LIST.csv and COMPANY-AD-USER-LIST.csv
 .OUTPUTS
     Output csv file with information for following:
     UserName,FirstName,LastName,AccountEnabled,GroupMembership,PrimaryGroup,PrimaryGrpID,HomeDrive,HomeDirectory,CompanyUPN,SID,UserOUPath,GUIDInfo
@@ -26,8 +26,8 @@ function Get-ADUSERDETAIL {
     }
 }
 
-$DOMList = import-csv -Path "C:\users\bsimigrate\Downloads\YMCA-AD-DOMAIN-LIST.csv"
-$USERLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\YMCA-AD-USER-LIST.csv
+$DOMList = import-csv -Path "C:\users\bsimigrate\Downloads\COMPANY-AD-DOMAIN-LIST.csv"
+$USERLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\COMPANY-AD-USER-LIST.csv
 $DCSVR = $DOMList.SourceDomain
 $CLIENTS = $USERLIST.UserName
 #$DCSVR = "dcv.stratford.local"

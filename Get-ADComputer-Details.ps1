@@ -7,7 +7,7 @@
     PS C:\> .\Get-ADComputer-Details.ps1
     The script connects to the source domain, gathers information for computers, categorizes needed properties, and exports the properties to a csv file in a given order.
 .INPUTS
-    Inputs information for Domain and ComputerNames from YMCA-AD-DOMAIN-LIST.csv and YMCA-AD-HOST-LIST.csv
+    Inputs information for Domain and ComputerNames from COMPANY-AD-DOMAIN-LIST.csv and COMPANY-AD-HOST-LIST.csv
 .OUTPUTS
     Output csv file with information for following:
     HostName,FQDN,IPAddress,OS,OSVersion,ServiceAccount,OUPath,SID,GUID,GroupID
@@ -26,8 +26,8 @@ function Get-ADCOMPUTERDETAILS {
     }
 }
 
-$DOMList = import-csv -Path C:\users\bsimigrate\Downloads\YMCA-AD-DOMAIN-LIST.csv
-$HOSTLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\YMCA-AD-HOST-LIST.csv
+$DOMList = import-csv -Path C:\users\bsimigrate\Downloads\COMPANY-AD-DOMAIN-LIST.csv
+$HOSTLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\COMPANY-AD-HOST-LIST.csv
 $DCSVR = $DOMList.SourceDomain
 $CLIENTS = $HOSTLIST.HostName
 $Details = @()
