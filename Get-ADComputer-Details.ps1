@@ -26,8 +26,8 @@ function Get-ADCOMPUTERDETAILS {
     }
 }
 
-$DOMList = import-csv -Path C:\users\bsimigrate\Downloads\COMPANY-AD-DOMAIN-LIST.csv
-$HOSTLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\COMPANY-AD-HOST-LIST.csv
+$DOMList = import-csv -Path C:\users\Username\Downloads\COMPANY-AD-DOMAIN-LIST.csv
+$HOSTLIST = Import-Csv -Path C:\USERS\UserName\Downloads\COMPANY-AD-HOST-LIST.csv
 $DCSVR = $DOMList.SourceDomain
 $CLIENTS = $HOSTLIST.HostName
 $Details = @()
