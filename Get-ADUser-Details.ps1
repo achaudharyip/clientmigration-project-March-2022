@@ -35,7 +35,7 @@ foreach ($USER in $USERS) {
     $Details += Get-ADUSERDETAIL $DCSVR $USER
 }
 
-$USRResult = @()
+$Result = @()
 ForEach ($Detail in $Details){
     If($Detail.Enabled -eq $true){
         $Enabled = "Yes"
@@ -44,8 +44,8 @@ ForEach ($Detail in $Details){
         }
     }
     $Group = ((($Detail.MemberOf -split ",OU=O365 Groups,OU=Stratford Staff") -replace "CN=", "") -replace ",Builtin", "") -replace ",DC=Stratford,DC=local", ""| Out-String
-    $USRResult += New-Object -TypeName psobject -Property (@{PrimaryGroup=$Detail.PrimaryGroup;PrimaryGrpID=$Detail.primaryGroupID;HomeDrive=$Detail.HomeDrive;HomeDirectory=$Detail.HomeDirectory;Company=$Detail.Company;GroupMembership=$Group;UserName=$Detail.SamAccountName; AccountEnabled=$Enabled; FirstName=$Detail.GivenName; LastName=$Detail.Surname; UserOUPath=$Detail.DistinguishedName; SID=$Detail.SID; GUIDInfo=$Detail.ObjectGUID; UPN=$Detail.UserPrincipalName})
+    $Result += New-Object -TypeName psobject -Property (@{PrimaryGroup=$Detail.PrimaryGroup;PrimaryGrpID=$Detail.primaryGroupID;HomeDrive=$Detail.HomeDrive;HomeDirectory=$Detail.HomeDirectory;Company=$Detail.Company;GroupMembership=$Group;UserName=$Detail.SamAccountName; AccountEnabled=$Enabled; FirstName=$Detail.GivenName; LastName=$Detail.Surname; UserOUPath=$Detail.DistinguishedName; SID=$Detail.SID; GUIDInfo=$Detail.ObjectGUID; UPN=$Detail.UserPrincipalName})
 }
 
 
-$USRResult|Select-Object -Property UserName,FirstName,LastName,AccountEnabled,GroupMembership,PrimaryGroup,PrimaryGrpID,HomeDrive,HomeDirectory,CompanyUPN,SID,UserOUPath,GUIDInfo|Export-Csv -Path c:\Path-to-Directory-for-output-csv-file\PreUserMigrationInfo.csv -NoTypeInformation
+$Result|Select-Object -Property UserName,FirstName,LastName,AccountEnabled,GroupMembership,PrimaryGroup,PrimaryGrpID,HomeDrive,HomeDirectory,CompanyUPN,SID,UserOUPath,GUIDInfo|Export-Csv -Path c:\Path-to-Directory-for-output-csv-file\PreUserMigrationInfo.csv -NoTypeInformation
