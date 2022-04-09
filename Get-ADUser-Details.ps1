@@ -26,12 +26,10 @@ function Get-ADUSERDETAIL {
     }
 }
 
-$DOMList = import-csv -Path "C:\users\bsimigrate\Downloads\COMPANY-AD-DOMAIN-LIST.csv"
-$USERLIST = Import-Csv -Path C:\USERS\bsimigrate\Downloads\COMPANY-AD-USER-LIST.csv
+$DOMList = import-csv -Path "C:\users\UserName\Downloads\COMPANY-AD-DOMAIN-LIST.csv"
+$USERLIST = Import-Csv -Path C:\USERS\UserName\Downloads\COMPANY-AD-USER-LIST.csv
 $DCSVR = $DOMList.SourceDomain
 $CLIENTS = $USERLIST.UserName
-#$DCSVR = "dcv.stratford.local"
-#$USERS = "stratford.migrate","stratford.migrate2"
 $Details = @()
 foreach ($USER in $USERS) {
     $Details += Get-ADUSERDETAIL $DCSVR $USER
