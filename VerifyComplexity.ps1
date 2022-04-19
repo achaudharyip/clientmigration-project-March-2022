@@ -36,7 +36,7 @@ function Set-Path($startdir="") {
     [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms")|Out-Null
 
     $Directory = New-Object System.Windows.Forms.FolderBrowserDialog
-    $Directory.Description = "Select the path to the psexec and grant-localadminaccess.psq directory"
+    $Directory.Description = "Select the path where the reports file will be saved"
     $Directory.rootfolder = "MyComputer"
     $Directory.SelectedPath = $startdir
 
