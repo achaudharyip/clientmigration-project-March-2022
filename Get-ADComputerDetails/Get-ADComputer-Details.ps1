@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Gather information of AD Computers
 .DESCRIPTION
