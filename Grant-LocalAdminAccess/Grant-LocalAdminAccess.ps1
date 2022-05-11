@@ -44,7 +44,7 @@ function Set-Path($startdir="") {
 
 $path = (Set-Path).SelectedPath
 $cred = Get-Credential
-$psexec = Select-csvFile       
+$psexec = (Get-ChildItem -Path $path "psexec.exe").Name       
 $csvFile = Select-csvFile
 $LISTS = Import-Csv $csvFile -Header HostName, UserName
 $HOSTS = $LISTS.HostName
