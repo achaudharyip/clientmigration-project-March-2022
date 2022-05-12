@@ -31,7 +31,7 @@ function Set-Path($startdir="") {
     [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms")|Out-Null
 
     $Directory = New-Object System.Windows.Forms.FolderBrowserDialog
-    $Directory.Description = "Select the path to the psexec and grant-localadminaccess.psq directory"
+    $Directory.Description = "Select the path to the psexec and grant-localadminaccess.ps1 directory"
     $Directory.rootfolder = "MyComputer"
     $Directory.SelectedPath = $startdir
 
